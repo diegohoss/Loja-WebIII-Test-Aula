@@ -24,6 +24,6 @@ $ git clone https://github.com/diegohoss/Loja-WebIII-Test-Aula.git
 
 $ cd Aula-Loja-WebIII-Test
 
-6) Instale as dependências:
+5) Instale as dependências:
    
 $ composer dump
