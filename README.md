@@ -6,7 +6,7 @@ Siga os seguintes passos para ativar o projeto e deixá-lo pronto para uso
 
 NOTA: toda linha iniciada com $ refere-se a um comando que deve ser executado no terminal
 
-1)Crie um diretório em sua maquina para clonar o repositório:
+1) Crie um diretório em sua maquina para clonar o repositório:
 $ mkdir Aula-Loja-WebIII-Test
 
 2) Inicialize o git:
