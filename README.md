@@ -22,7 +22,7 @@ $ git clone https://github.com/diegohoss/Loja-WebIII-Test-Aula.git
 
 4) Entre no diretório:
 
-$ cd T01-Controle-de-Acesso-Aula/
+$ cd Aula-Loja-WebIII-Test
 
 6) Instale as dependências:
    
