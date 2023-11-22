@@ -138,4 +138,18 @@ class ProcessaCompraTest extends TestCase
         self::assertEquals($totalEsperado, $produtoDeMenorValor);
     }
 
+    public function testFinalizaCompraSemProdutosNoCarrinho() {
+
+        $maria = new Usuario('Maria');
+        $carrinho = new Carrinho($maria);
+
+        $compra = new ProcessaCompra();
+        $compra->finalizaCompra($carrinho);
+
+        $totalDaCompra = $compra->getTotalDaCompra();
+        $totalEsperado = 0;
+
+        self::assertEquals($totalEsperado, $totalDaCompra);
+    }
+
 }

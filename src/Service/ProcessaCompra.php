@@ -30,23 +30,45 @@ class ProcessaCompra {
         }
     }
 
-    public function getProdutoDeMaiorValor(): float {
-        return $this->maiorValor;
+    public function getProdutoDeMaiorValor(): float{
+
+        $maiorValor = 0;
+
+        foreach ($this->produtos as $produto) {
+            $maiorValor = max($maiorValor, $produto->getValor());
+        }
+
+        return $maiorValor;
     }
+
 
     public function getProdutoDeMenorValor(): float {
-        return $this->menorValor;
+        $menorValor = PHP_FLOAT_MAX;
+
+        foreach ($this->produtos as $produto) {
+            $menorValor = min($menorValor, $produto->getValor());
+        }
+
+        return $menorValor;
     }
 
-    public function finalizaCompra(Carrinho $carrinho) {
+    
+    public function finalizaCompra(Carrinho $carrinho){
+
         $this->carrinho = $carrinho;
         $produtos = $this->carrinho->getProdutos();
+
+        if (empty($produtos)) {
+            $this->totalDaCompra = 0;
+            return;
+        }
+
         foreach ($produtos as $produto) {
             $this->totalDaCompra += $produto->getValor();
             $this->processaProduto($produto);
-            $this->qtdDeProdutos++;
         }
     }
+
 
     public function getTotalDaCompra(): float {
         return $this->totalDaCompra;
@@ -66,4 +88,5 @@ class ProcessaCompra {
         }
         return $valorTotal;
     }
+
 }
