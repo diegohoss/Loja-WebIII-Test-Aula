@@ -1,0 +1,15 @@
+Processa Compra (Loja\WebIII\Tests\Service\ProcessaCompra)
+ [x] Um
+ [ ] VerificaSe AQuantidadeDeProdutosEmCompraECarrinho SaoIguais with data set "carrinho Aleatorio"
+ [ ] VerificaSe AQuantidadeDeProdutosEmCompraECarrinho SaoIguais with data set "carrinho Crescente"
+ [ ] VerificaSe AQuantidadeDeProdutosEmCompraECarrinho SaoIguais with data set "carrinho Decrescente"
+ [ ] VerificaSe OValorTotalDaCompraEASomaDosProdutosDoCarrinho SaoIguais with data set "carrinho Aleatorio"
+ [ ] VerificaSe OValorTotalDaCompraEASomaDosProdutosDoCarrinho SaoIguais with data set "carrinho Crescente"
+ [ ] VerificaSe OValorTotalDaCompraEASomaDosProdutosDoCarrinho SaoIguais with data set "carrinho Decrescente"
+ [x] VerificaSe OProdutoDeMaiorValorNoCarrinho EstaCorreto with data set "carrinho Aleatorio"
+ [x] VerificaSe OProdutoDeMaiorValorNoCarrinho EstaCorreto with data set "carrinho Crescente"
+ [x] VerificaSe OProdutoDeMaiorValorNoCarrinho EstaCorreto with data set "carrinho Decrescente"
+ [x] VerificaSe OProdutoDeMenorValorNoCarrinho EstaCorreto with data set "carrinho Aleatorio"
+ [ ] VerificaSe OProdutoDeMenorValorNoCarrinho EstaCorreto with data set "carrinho Crescente"
+ [x] VerificaSe OProdutoDeMenorValorNoCarrinho EstaCorreto with data set "carrinho Decrescente"
+

@@ -18,7 +18,8 @@ class ProcessaCompra {
     public function __construct() {
         $this->totalDaCompra = 0;
         $this->menorValor = PHP_FLOAT_MAX; // Inicializa com o maior valor possível
-        $this->maiorValor = 0; // Inicializa com o menor valor possível
+        $this->maiorValor = 0;
+        $this->qtdDeProdutos = 0; // Inicializa com o menor valor possível
     }
 
     public function processaProduto(Produto $produto) {
@@ -43,10 +44,26 @@ class ProcessaCompra {
         foreach ($produtos as $produto) {
             $this->totalDaCompra += $produto->getValor();
             $this->processaProduto($produto);
+            $this->qtdDeProdutos++;
         }
     }
 
     public function getTotalDaCompra(): float {
         return $this->totalDaCompra;
+    }
+
+    public function getTotalDeProdutos(): int
+    {
+        return $this->qtdDeProdutos;
+        //return count($this->produtos);
+    }
+
+    public function getValorTotalProdutos(): float {
+        $valorTotal = 0;
+        $produtos = $this->carrinho->getProdutos();
+        foreach ($produtos as $produto) {
+            $valorTotal += $produto->getValor();
+        }
+        return $valorTotal;
     }
 }
