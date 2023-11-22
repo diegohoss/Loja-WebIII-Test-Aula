@@ -12,4 +12,6 @@ Processa Compra (Loja\WebIII\Tests\Service\ProcessaCompra)
  [x] VerificaSe OProdutoDeMenorValorNoCarrinho EstaCorreto with data set "carrinho Aleatorio"
  [ ] VerificaSe OProdutoDeMenorValorNoCarrinho EstaCorreto with data set "carrinho Crescente"
  [x] VerificaSe OProdutoDeMenorValorNoCarrinho EstaCorreto with data set "carrinho Decrescente"
+ [ ] Obtem produto de maior valor no carrinho
+ [ ] Obtem produto de menor valor no carrinho
 

@@ -24,9 +24,8 @@ class ProcessaCompraTest extends TestCase
         $carrinho->adicionaProduto(new Produto('Geladeira', 1500));
         $carrinho->adicionaProduto(new Produto('Cooktop', 600));
         $carrinho->adicionaProduto(new Produto('Forno Eletrico', 4500));
-        $compra = new ProcessaCompra();
-        $compra->finalizaCompra($carrinho);
-        $totalDaCompra = $compra->getTotalDaCompra();
+        $this->compra->finalizaCompra($carrinho);
+        $totalDaCompra = $this->compra->getTotalDaCompra();
         $totalEsperado = 6600;
         $this->assertEquals($totalEsperado, $totalDaCompra);
     }
@@ -36,9 +35,8 @@ class ProcessaCompraTest extends TestCase
      */
     public function testVerificaSe_AQuantidadeDeProdutosEmCompraECarrinho_SaoIguais(Carrinho $carrinho)
     {
-        $compra = new ProcessaCompra();
-        $compra->finalizaCompra($carrinho);
-        $totalDeProdutosDaCompra = $compra->getTotalDeProdutos();
+        $this->compra->finalizaCompra($carrinho);
+        $totalDeProdutosDaCompra = $this->compra->getTotalDeProdutos();
         $totalEsperado = $carrinho->getTotalDeProdutos();
         self::assertEquals($totalEsperado, $totalDeProdutosDaCompra);
     }
@@ -48,9 +46,8 @@ class ProcessaCompraTest extends TestCase
      */
     public function testVerificaSe_OValorTotalDaCompraEASomaDosProdutosDoCarrinho_SaoIguais(Carrinho $carrinho)
     {
-        $compra = new ProcessaCompra();
-        $compra->finalizaCompra($carrinho);
-        $totalDaCompra = $compra->getTotalDaCompra();
+        $this->compra->finalizaCompra($carrinho);
+        $totalDaCompra = $this->compra->getTotalDaCompra();
         $totalEsperado = $carrinho->getValorTotalProdutos();
         self::assertEquals($totalEsperado, $totalDaCompra);
     }
@@ -60,9 +57,8 @@ class ProcessaCompraTest extends TestCase
      */
     public function testVerificaSe_OProdutoDeMaiorValorNoCarrinho_EstaCorreto(Carrinho $carrinho)
     {
-        $compra = new ProcessaCompra();
-        $compra->finalizaCompra($carrinho);
-        $produtoDeMaiorValor = $compra->getProdutoDeMaiorValor();
+        $this->compra->finalizaCompra($carrinho);
+        $produtoDeMaiorValor = $this->compra->getProdutoDeMaiorValor();
         $totalEsperado = 4500;
         self::assertEquals($totalEsperado, $produtoDeMaiorValor);
     }
@@ -72,9 +68,8 @@ class ProcessaCompraTest extends TestCase
      */
     public function testVerificaSe_OProdutoDeMenorValorNoCarrinho_EstaCorreto(Carrinho $carrinho)
     {
-        $compra = new ProcessaCompra();
-        $compra->finalizaCompra($carrinho);
-        $produtoDeMenorValor = $compra->getProdutoDeMenorValor();
+        $this->compra->finalizaCompra($carrinho);
+        $produtoDeMenorValor = $this->compra->getProdutoDeMenorValor();
         $totalEsperado = 600;
         self::assertEquals($totalEsperado, $produtoDeMenorValor);
     }
@@ -112,4 +107,35 @@ class ProcessaCompraTest extends TestCase
             'carrinho Decrescente' => [$carrinhoOrdemDecrescente],
         ];
     }
+
+    
+    public function testObtemProdutoDeMaiorValorNoCarrinho() {
+
+        $maria = new Usuario('Maria');
+        $carrinho = new Carrinho($maria);
+        $carrinho->adicionaProduto(new Produto('Geladeira', 1500));
+        $carrinho->adicionaProduto(new Produto('Cooktop', 600));
+        $carrinho->adicionaProduto(new Produto('Forno Eletrico', 4500));
+
+        $produtoDeMaiorValor = $carrinho->getProdutoDeMaiorValor();
+        $totalEsperado = 4500;
+        
+        self::assertEquals($totalEsperado, $produtoDeMaiorValor);
+    }
+
+
+    public function testObtemProdutoDeMenorValorNoCarrinho()
+    {
+        $maria = new Usuario('Maria');
+        $carrinho = new Carrinho($maria);
+        $carrinho->adicionaProduto(new Produto('Geladeira', 1500));
+        $carrinho->adicionaProduto(new Produto('Cooktop', 600));
+        $carrinho->adicionaProduto(new Produto('Forno Eletrico', 4500));
+
+        $produtoDeMenorValor = $carrinho->getProdutoDeMenorValor();
+        $totalEsperado = 600;
+        
+        self::assertEquals($totalEsperado, $produtoDeMenorValor);
+    }
+
 }
